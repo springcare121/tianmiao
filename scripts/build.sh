@@ -11,4 +11,9 @@ pnpm install --prefer-frozen-lockfile --prefer-offline --loglevel debug --report
 echo "Building the project..."
 pnpm next build
 
+# Copy static assets for standalone mode
+echo "Copying static assets for standalone server..."
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
+
 echo "Build completed successfully!"

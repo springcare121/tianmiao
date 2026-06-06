@@ -2,14 +2,9 @@
 set -Eeuo pipefail
 
 COZE_WORKSPACE_PATH="${COZE_WORKSPACE_PATH:-$(pwd)}"
-PORT=5000
-DEPLOY_RUN_PORT="${DEPLOY_RUN_PORT:-$PORT}"
+PORT="${DEPLOY_RUN_PORT:-5000}"
 
-start_service() {
-    cd "${COZE_WORKSPACE_PATH}"
-    echo "Starting HTTP service on port ${DEPLOY_RUN_PORT} for deploy..."
-    pnpm exec next start --port ${DEPLOY_RUN_PORT}
-}
+cd "${COZE_WORKSPACE_PATH}"
 
-echo "Starting HTTP service on port ${DEPLOY_RUN_PORT} for deploy..."
-start_service
+echo "Starting standalone server on 0.0.0.0:${PORT}..."
+HOSTNAME=0.0.0.0 PORT=${PORT} node .next/standalone/server.js
