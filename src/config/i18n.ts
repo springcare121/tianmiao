@@ -211,7 +211,7 @@ export const translations: Record<Lang, Translations> = {
     },
     // Hero
     hero: {
-      title: '为知识工作者与智能系统\n设计语义架构',
+      title: '为知识工作者与智能系统\n设计语义空间',
       subtitle: [
         '我们帮助知识工作者构建领域、角色与主题的语义结构，',
         '帮助智能系统理解、记忆与调用这些结构，',
